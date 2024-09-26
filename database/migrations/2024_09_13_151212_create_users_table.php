@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
+            $table->string('student_id')->unique();
             $table->string('student_name');
             $table->string('student_email');
+            $table->string('password');
             $table->timestamp('registered')->nullable();
             $table->timestamps();
         });
@@ -43,6 +45,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('lecturers');
         Schema::dropIfExists('students');
         Schema::dropIfExists('lecturers');
         Schema::dropIfExists('sessions');

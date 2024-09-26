@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     let qrcode = new QRCode(document.getElementById("qrcode"), {
         text: "https://example.com", // Initial value
+        // ! Go into '.../form/uniqueString'
         width: 128,
         height: 128,
         colorDark: "#000000",
