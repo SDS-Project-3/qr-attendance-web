@@ -16,17 +16,20 @@
                 <label for="mod-major-dd">Select Module Major:</label>
                 <select name="dropdown2" id="mod-major-dd">
                     <option value="">-- Select --</option>
-                    <option value="ValModZC">ZC - Computer Science</option>
-                    <option value="ValModZD">ZD - Data Science</option>
-                    <option value="ValModZS">ZS - Cyber Security and Forensics</option>
+                    <option value="ValZA">ZA - Artificial Intelligence & Robotics</option>
+                    <option value="ValZC">ZC - Computer Science</option>
+                    <option value="ValZD">ZD - Data Science</option>
+                    <option value="ValZI">ZI - Applied Artificial Intelligence</option>
+                    <option value="ValZS">ZS - Cybersecurity & Forensics</option>
                 </select>
             </div>
-            
+
+            {{-- ! How to make that, when a value from mod-major-dd is selected, relevant modules come out --}}
             <div class="form-group">
                 <label for="module-dd">Select Module:</label>
                 <select name="dropdown3" id="module-dd">
                     <option value="">-- Select --</option>
-                    <option value="ValueA">Option A</option>
+                    <option value="Val">Option A</option>
                     <option value="ValueB">Option B</option>
                     <option value="ValueC">Option C</option>
                 </select>
