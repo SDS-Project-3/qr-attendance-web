@@ -33,32 +33,54 @@
 </head>
 <body>
     <main>
+
         <form action="/" id="qr-generation-form">
+
             <div class="form-group">
-                <label for="dropdown1">Select Option 1:</label>
-                <select name="dropdown1" id="dropdown1">
+                <label for="period-dd">Select Module Period:</label>
+                <select name="dropdown1" id="period-dd">
                     <option value="">-- Select --</option>
-                    <option value="Value1">Option 1</option>
-                    <option value="Value2">Option 2</option>
-                    <option value="Value3">Option 3</option>
+                    <option value="ValPer1">0750 - 0940</option>
+                    <option value="ValPer2">0950 - 1140</option>
+                    <option value="ValPer3">1150 - 1340</option>
+                    <option value="ValPer4">1410 - 1600</option>
+                    <option value="ValPer5">1610 - 1800</option>
                 </select>
             </div>
+
             <div class="form-group">
-                <label for="dropdown2">Select Option 2:</label>
-                <select name="dropdown2" id="dropdown2">
+                <label for="mod-major-dd">Select Module Major:</label>
+                <select name="dropdown2" id="mod-major-dd">
+                    <option value="">-- Select --</option>
+                    <option value="ValModZC">ZC - Computer Science</option>
+                    <option value="ValModZD">ZD - Data Science</option>
+                    <option value="ValModZS">ZS - Cyber Security and Forensics</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="dropdown3">Select Module:</label>
+                <select name="dropdown3" id="dropdown3">
                     <option value="">-- Select --</option>
                     <option value="ValueA">Option A</option>
                     <option value="ValueB">Option B</option>
                     <option value="ValueC">Option C</option>
                 </select>
             </div>
+
             <input type="submit" value="Generate QR Code" />
+
         </form>
+
         <br />
         <div id="qr-code"></div>
+
     </main>
-    <script>
-        let dropdown1 = document.getElementById("dropdown1");
+
+    <script src="/js/qr-gen.js"></script>
+
+    {{-- <script>
+        let dropdown1 = document.getElementById("module-dd");
         let dropdown2 = document.getElementById("dropdown2");
         let qrGenerationForm = document.getElementById("qr-generation-form");
         let qrCode;
@@ -88,6 +110,6 @@
                 qrCode.makeCode(qrContent);
             }
         });
-    </script>
+    </script> --}}
 </body>
 </html>
