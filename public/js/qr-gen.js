@@ -34,7 +34,7 @@ qrGenerationForm.addEventListener("submit", function (event) {
 
     // Combine the selected options to form the QR code content
     // let qrContent = `Option1: ${stringToHex(period.value)}, Option2: ${stringToHex(major.value)}, Option3 :${stringToHex(module.value)}`;
-    let qrContent = `localhost:8000/${stringToHex(period.value)}${stringToHex(major.value)}${stringToHex(module.value)}`;
+    let qrContent = `${stringToHex(period.value)}${stringToHex(major.value)}${stringToHex(module.value)}`;
 
     if (qrCode == null) {
         qrCode = generateQrCode(qrContent);
