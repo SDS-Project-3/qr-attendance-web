@@ -1,5 +1,7 @@
-let dropdown1 = document.getElementById("period-dd");
-let dropdown2 = document.getElementById("mod-major-dd");
+let major = document.getElementById("mod-major-dd");
+let module = document.getElementById("module-dd")
+let period = document.getElementById("period-dd");
+
 let qrGenerationForm = document.getElementById("qr-generation-form");
 let qrCode;
 
@@ -16,11 +18,14 @@ function generateQrCode(qrContent) {
 
 qrGenerationForm.addEventListener("submit", function (event) {
     event.preventDefault();
-    let selectedOption1 = dropdown1.value;
-    let selectedOption2 = dropdown2.value;
+    // ! Since adding vars and referring into them can be somewhat redundant, these are commented out and values
+    // ! will just be referred immediately
+    
+    // let selectedOption1 = period.value;
+    // let selectedOption2 = major.value;
 
     // Combine the selected options to form the QR code content
-    let qrContent = `Option1: ${selectedOption1}, Option2: ${selectedOption2}`;
+    let qrContent = `Option1: ${period.value}, Option2: ${major.value}, Option3 :${module.value}`;
 
     if (qrCode == null) {
         qrCode = generateQrCode(qrContent);

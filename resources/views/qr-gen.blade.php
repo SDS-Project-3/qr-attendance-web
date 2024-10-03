@@ -6,36 +6,31 @@
     <title>QR Code Generator</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <link rel="stylesheet" href="{{asset('css/qr-gen.css')}}">
-    {{-- <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        select {
-            width: 200px;
-            padding: 8px;
-            margin-right: 10px;
-        }
-        input[type="submit"] {
-            padding: 10px 15px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-    </style> --}}
 </head>
 <body>
     <main>
 
         <form action="/" id="qr-generation-form">
+
+            <div class="form-group">
+                <label for="mod-major-dd">Select Module Major:</label>
+                <select name="dropdown2" id="mod-major-dd">
+                    <option value="">-- Select --</option>
+                    <option value="ValModZC">ZC - Computer Science</option>
+                    <option value="ValModZD">ZD - Data Science</option>
+                    <option value="ValModZS">ZS - Cyber Security and Forensics</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="module-dd">Select Module:</label>
+                <select name="dropdown3" id="module-dd">
+                    <option value="">-- Select --</option>
+                    <option value="ValueA">Option A</option>
+                    <option value="ValueB">Option B</option>
+                    <option value="ValueC">Option C</option>
+                </select>
+            </div>
 
             <div class="form-group">
                 <label for="period-dd">Select Module Period:</label>
@@ -48,26 +43,7 @@
                     <option value="ValPer5">1610 - 1800</option>
                 </select>
             </div>
-
-            <div class="form-group">
-                <label for="mod-major-dd">Select Module Major:</label>
-                <select name="dropdown2" id="mod-major-dd">
-                    <option value="">-- Select --</option>
-                    <option value="ValModZC">ZC - Computer Science</option>
-                    <option value="ValModZD">ZD - Data Science</option>
-                    <option value="ValModZS">ZS - Cyber Security and Forensics</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="dropdown3">Select Module:</label>
-                <select name="dropdown3" id="dropdown3">
-                    <option value="">-- Select --</option>
-                    <option value="ValueA">Option A</option>
-                    <option value="ValueB">Option B</option>
-                    <option value="ValueC">Option C</option>
-                </select>
-            </div>
+            
 
             <input type="submit" value="Generate QR Code" />
 
