@@ -4,13 +4,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentAttendanceController;
 use App\Http\Controllers\StudentRegistrationController;
 
-// Route::get('/', function () {
-//     return view('home');
-// });
-
 Route::get('/', function () {
-    return view('qr-gen');
+    return view('home');
 });
+
+// Route::get('/', function () {
+//     return view('qr-gen');
+// });
 
 
 Route::post('/login', [StudentRegistrationController::class, 'login']);
