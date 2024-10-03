@@ -16,6 +16,14 @@ function generateQrCode(qrContent) {
     });
 }
 
+function stringToHex(str) {
+    let hex = '';
+    for (let i = 0; i < str.length; i++) {
+        hex += str.charCodeAt(i).toString(16);
+    }
+    return hex;
+}
+
 qrGenerationForm.addEventListener("submit", function (event) {
     event.preventDefault();
     // ! Since adding vars and referring into them can be somewhat redundant, these are commented out and values
@@ -25,7 +33,8 @@ qrGenerationForm.addEventListener("submit", function (event) {
     // let selectedOption2 = major.value;
 
     // Combine the selected options to form the QR code content
-    let qrContent = `Option1: ${period.value}, Option2: ${major.value}, Option3 :${module.value}`;
+    // let qrContent = `Option1: ${stringToHex(period.value)}, Option2: ${stringToHex(major.value)}, Option3 :${stringToHex(module.value)}`;
+    let qrContent = `localhost:8000/${stringToHex(period.value)}${stringToHex(major.value)}${stringToHex(module.value)}`;
 
     if (qrCode == null) {
         qrCode = generateQrCode(qrContent);
