@@ -16,11 +16,12 @@
                 <label for="mod-major-dd">Select Module Major:</label>
                 <select name="dropdown2" id="mod-major-dd">
                     <option value="">-- Select --</option>
-                    <option value="ValZA">ZA - Artificial Intelligence & Robotics</option>
-                    <option value="ValZC">ZC - Computer Science</option>
-                    <option value="ValZD">ZD - Data Science</option>
-                    <option value="ValZI">ZI - Applied Artificial Intelligence</option>
-                    <option value="ValZS">ZS - Cybersecurity & Forensics</option>
+                    <option value="ZA">ZA - Artificial Intelligence & Robotics</option>
+                    <option value="ZC">ZC - Computer Science</option>
+                    <option value="ZD">ZD - Data Science</option>
+                    <option value="ZI">ZI - Applied Artificial Intelligence</option>
+                    <option value="ZS">ZS - Cybersecurity & Forensics</option>
+                    <option value="ZZ">ZZ - Degree Core</option>
                 </select>
             </div>
 
@@ -39,11 +40,11 @@
                 <label for="period-dd">Select Module Period:</label>
                 <select name="dropdown1" id="period-dd">
                     <option value="">-- Select --</option>
-                    <option value="ValPer1">0750 - 0940</option>
-                    <option value="ValPer2">0950 - 1140</option>
-                    <option value="ValPer3">1150 - 1340</option>
-                    <option value="ValPer4">1410 - 1600</option>
-                    <option value="ValPer5">1610 - 1800</option>
+                    <option value="AM1">0750 - 0940</option>
+                    <option value="AM2">0950 - 1140</option>
+                    <option value="AN0">1150 - 1340</option>
+                    <option value="PM1">1410 - 1600</option>
+                    <option value="PM2">1610 - 1800</option>
                 </select>
             </div>
             
