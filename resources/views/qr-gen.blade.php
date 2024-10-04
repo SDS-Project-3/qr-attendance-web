@@ -14,7 +14,7 @@
 
             <div class="form-group">
                 <label for="mod-major-dd">Select Module Major:</label>
-                <select name="dropdown2" id="mod-major-dd">
+                <select name="module-major" id="mod-major-dd">
                     <option value="">-- Select --</option>
                     <option value="ZA">ZA - Artificial Intelligence & Robotics</option>
                     <option value="ZC">ZC - Computer Science</option>
@@ -28,7 +28,7 @@
             {{-- ! How to make that, when a value from mod-major-dd is selected, relevant modules come out --}}
             <div class="form-group">
                 <label for="module-dd">Select Module:</label>
-                <select name="dropdown3" id="module-dd">
+                <select name="module-name" id="module-dd">
                     <option value="">-- Select --</option>
                     <option value="Val">Option A</option>
                     <option value="ValueB">Option B</option>
@@ -38,7 +38,7 @@
 
             <div class="form-group">
                 <label for="period-dd">Select Module Period:</label>
-                <select name="dropdown1" id="period-dd">
+                <select name="module-period" id="period-dd">
                     <option value="">-- Select --</option>
                     <option value="AM1">0750 - 0940</option>
                     <option value="AM2">0950 - 1140</option>
