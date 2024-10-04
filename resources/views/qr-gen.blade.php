@@ -28,11 +28,53 @@
             {{-- ! How to make that, when a value from mod-major-dd is selected, relevant modules come out --}}
             <div class="form-group">
                 <label for="module-dd">Select Module:</label>
-                <select name="module-name" id="module-dd">
+                <select name="module-num" id="module-dd">
                     <option value="">-- Select --</option>
-                    <option value="Val">Option A</option>
-                    <option value="ValueB">Option B</option>
-                    <option value="ValueC">Option C</option>
+                    <option value="1102">1102</option>
+                    <option value="1103">1103</option>
+                    <option value="1104">1104</option>
+                    <option value="1201">1201</option>
+                    <option value="1202">1202</option>
+                    <option value="1301">1301</option>
+                    <option value="2201">2201</option>
+                    <option value="2202">2202</option>
+                    <option value="2203">2203</option>
+                    <option value="2204">2204</option>
+                    <option value="2205">2205</option>
+                    <option value="2301">2301</option>
+                    <option value="2302">2302</option>
+                    <option value="3201">3201</option>
+                    <option value="3202">3202</option>
+                    <option value="3301">3301</option>
+                    <option value="3302">3302</option>
+                    <option value="3303">3303</option>
+                    <option value="3304">3304</option>
+                    <option value="3305">3305</option>
+                    <option value="3306">3306</option>
+                    <option value="3307">3307</option>
+                    <option value="3308">3308</option>
+                    <option value="3309">3309</option>
+                    <option value="3310">3310</option>
+                    <option value="3311">3311</option>
+                    <option value="3312">3312</option>
+                    <option value="3313">3313</option>
+                    <option value="4201">4201</option>
+                    <option value="4202">4202</option>
+                    <option value="4290">4290</option>
+                    <option value="4301">4301</option>
+                    <option value="4302">4302</option>
+                    <option value="4303">4303</option>
+                    <option value="4304">4304</option>
+                    <option value="4305">4305</option>
+                    <option value="4306">4306</option>
+                    <option value="4307">4307</option>
+                    <option value="4308">4308</option>
+                    <option value="4309">4309</option>
+                    <option value="4310">4310</option>
+                    <option value="4311">4311</option>
+                    <option value="4313">4313</option>
+                    <option value="4314">4314</option>
+                    <option value="4315">4315</option>
                 </select>
             </div>
 
