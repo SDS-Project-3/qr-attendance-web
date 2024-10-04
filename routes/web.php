@@ -8,6 +8,10 @@ Route::get('/', function () {
     return view('home');
 });
 
+// Route::get('/', function () {
+//     return view('qr-gen');
+// });
+
 
 Route::post('/login', [StudentRegistrationController::class, 'login']);
 Route::post('/register', [StudentRegistrationController::class, 'register']);

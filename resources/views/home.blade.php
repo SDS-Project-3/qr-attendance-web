@@ -85,7 +85,7 @@
 
     <div class="container">
         @auth
-            <div class="form-container">
+            <div class="form-container"> 
                 <h2>Student Attendance Form</h2>
                 @if ($errors->any())
                     <div class="alert">
@@ -131,7 +131,7 @@
                 </div>
             @endif
 
-            <div class="form-container">
+            <div class="form-container"> {{-- Left-hand --}}
                 <h2>Student Login</h2>
                 @if ($errors->any())
                     <div class="alert">
@@ -158,7 +158,7 @@
                 </form>
             </div>
 
-            <div class="form-container">
+            <div class="form-container"> {{-- Right-hand --}}
                 <h2>Student Registration</h2>
                 @if ($errors->any())
                     <div class="alert">

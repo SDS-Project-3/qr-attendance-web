@@ -47,7 +47,6 @@ return new class extends Migration
     {
         Schema::dropIfExists('lecturers');
         Schema::dropIfExists('students');
-        Schema::dropIfExists('lecturers');
         Schema::dropIfExists('sessions');
     }
 };
