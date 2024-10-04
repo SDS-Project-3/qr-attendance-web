@@ -4,8 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Code Generator</title>
+
+    <!-- Select2 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+
+    <!-- jQuery and Select2 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <link rel="stylesheet" href="{{asset('css/qr-gen.css')}}">
+    
 </head>
 <body>
     <main>
@@ -14,7 +23,7 @@
 
             <div class="form-group">
                 <label for="mod-major-dd">Select Module Major:</label>
-                <select name="module-major" id="mod-major-dd">
+                <select name="module-major" id="mod-major-dd" class="dd-select">
                     <option value="">-- Select --</option>
                     <option value="ZA">ZA - Artificial Intelligence & Robotics</option>
                     <option value="ZC">ZC - Computer Science</option>
@@ -28,7 +37,7 @@
             {{-- ! How to make that, when a value from mod-major-dd is selected, relevant modules come out --}}
             <div class="form-group">
                 <label for="module-dd">Select Module:</label>
-                <select name="module-num" id="module-dd">
+                <select name="module-num" id="module-dd" class="dd-select">
                     <option value="">-- Select --</option>
                     <option value="1102">1102</option>
                     <option value="1103">1103</option>
@@ -80,16 +89,19 @@
 
             <div class="form-group">
                 <label for="period-dd">Select Module Period:</label>
-                <select name="module-period" id="period-dd">
+                <select name="module-period" id="period-dd" class="dd-select">
                     <option value="">-- Select --</option>
-                    <option value="AM1">0750 - 0940</option>
-                    <option value="AM2">0950 - 1140</option>
-                    <option value="AN0">1150 - 1340</option>
-                    <option value="PM1">1410 - 1600</option>
-                    <option value="PM2">1610 - 1800</option>
+                    <option value="AM1">Period 01: 0750 - 0940</option>
+                    <option value="AM2">Period 02: 0950 - 1140</option>
+                    <option value="AN0">Period 03: 1150 - 1340</option>
+                    <option value="PM1">Period 04: 1410 - 1600</option>
+                    <option value="PM2">Period 05: 1610 - 1800</option>
                 </select>
             </div>
             
+            <div class="form-group">
+                {{-- ! TODO: Add calendar --}}
+            </div>
 
             <input type="submit" value="Generate QR Code" />
 

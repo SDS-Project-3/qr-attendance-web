@@ -24,6 +24,13 @@ function stringToHex(str) {
     return hex;
 }
 
+$(document).ready(function() {
+    $('.dd-select').select2({
+        placeholder: "-- Select --",
+        allowClear: true
+    });
+});
+
 qrGenerationForm.addEventListener("submit", function (event) {
     event.preventDefault();
     // ! Since adding vars and referring into them can be somewhat redundant, these are commented out and values
