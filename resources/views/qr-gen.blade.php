@@ -19,7 +19,7 @@
 <body>
     <main>
 
-        <form action="/" id="qr-generation-form">
+        <form action="/create-qr" id="qr-generation-form">
 
             <div class="form-group">
                 <label for="mod-major-dd">Select Module Major:</label>
@@ -34,7 +34,7 @@
                 </select>
             </div>
 
-            {{-- ! How to make that, when a value from mod-major-dd is selected, relevant modules come out --}}
+            {{-- ? How to make that, when a value from mod-major-dd is selected, relevant modules come out --}}
             <div class="form-group">
                 <label for="module-dd">Select Module:</label>
                 <select name="module-num" id="module-dd" class="dd-select">
@@ -100,7 +100,8 @@
             </div>
             
             <div class="form-group">
-                {{-- ! TODO: Add calendar --}}
+                {{-- TODO: Add calendar --}}
+                <input type="date" name="date" id="date">
             </div>
 
             <input type="submit" value="Generate QR Code" />
