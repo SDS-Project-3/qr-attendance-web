@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('module_code');
             $table->date('module_date');
             $table->string('period');
-            $table->string('full_name');
-            $table->string('student_id');
+            $table->string('full_name')->nullable();
+            $table->string('student_id')->nullable();
             $table->timestamps();
         });
     }
