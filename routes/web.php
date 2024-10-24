@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentAttendanceController;
 use App\Http\Controllers\StudentRegistrationController;
 
+// Route::get('/', function () {
+//     return view('home');
+// });
+
 Route::get('/', function () {
     $attendances = session('attendances', []);
     return view('index', compact('attendances'));
