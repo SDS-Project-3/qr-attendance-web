@@ -8,8 +8,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Student extends Authenticatable
 {
     use HasFactory;
+    protected $fillable = [
+        'student_id',
+        'student_name',
+        'student_email',
+        'password',
+    ];
 
-    protected $fillable = ['student_id', 'student_name', 'student_email', 'password', 'registered'];
-
-    protected $hidden = ['password'];
+    public function attendances()
+    {
+        return $this->hasMany(Attendance::class, 'student_id', 'student_id');
+    }
 }

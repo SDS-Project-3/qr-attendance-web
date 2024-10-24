@@ -5,8 +5,13 @@ use App\Http\Controllers\StudentAttendanceController;
 use App\Http\Controllers\StudentRegistrationController;
 
 Route::get('/', function () {
-    return view('home');
+    $attendances = session('attendances', []);
+    return view('index', compact('attendances'));
 });
+
+Route::get('/home', function () {
+    return view('home');
+})->name('home');
 
 
 Route::post('/login', [StudentRegistrationController::class, 'login']);

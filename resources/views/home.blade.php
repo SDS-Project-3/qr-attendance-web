@@ -22,12 +22,14 @@
             margin: auto;
             padding: 20px;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            flex-direction: column; /* Stack forms vertically */
+            align-items: center; /* Center forms horizontally */
+            justify-content: center; /* Center forms vertically */
         }
         .form-container {
-            flex: 1 1 300px;
-            margin: 10px;
+            width: 100%; /* Full width for better appearance */
+            max-width: 400px; /* Limit the width for larger screens */
+            margin: 10px 0; /* Margin between forms */
             padding: 20px;
             border: 1px solid #ddd;
             border-radius: 8px;
@@ -130,8 +132,8 @@
                     <p>Please log in with your credentials.</p>
                 </div>
             @endif
-
-            <div class="form-container">
+<p></p>
+            <div class="form-container"> {{-- Left-hand --}}
                 <h2>Student Login</h2>
                 @if ($errors->any())
                     <div class="alert">
@@ -157,8 +159,8 @@
                     </div>
                 </form>
             </div>
-
-            <div class="form-container">
+<p></p>
+            <div class="form-container"> {{-- Right-hand --}}
                 <h2>Student Registration</h2>
                 @if ($errors->any())
                     <div class="alert">
@@ -200,3 +202,4 @@
     </footer>
 </body>
 </html>
+

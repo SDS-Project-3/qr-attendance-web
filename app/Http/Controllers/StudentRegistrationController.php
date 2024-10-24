@@ -16,13 +16,14 @@ class StudentRegistrationController extends Controller
             'student_email' => 'required|email|unique:students,student_email',
             'password' => 'required|string|min:8',
         ]);
+
         $student = Student::create([
             'student_id' => $incomingFields['student_id'],
             'student_name' => $incomingFields['student_name'],
             'student_email' => $incomingFields['student_email'],
             'password' => Hash::make($incomingFields['password']),
         ]);
-        auth()->login($student);
+
         session()->flash('registered', true);
         return redirect('/')->with('message', 'Registration successful!');
     }
