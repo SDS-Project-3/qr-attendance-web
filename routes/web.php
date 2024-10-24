@@ -12,7 +12,6 @@ Route::get('/', function () {
     $attendances = session('attendances', []);
     return view('index', compact('attendances'));
 });
-
 Route::get('/home', function () {
     return view('home');
 })->name('home');
