@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Attendance extends Model
+class AttendanceReference extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'hex_ref',
-        'full_name',
-        'student_id',
+        'hexa_reference',
+        'module_code',
+        'module_date',
+        'period',
     ];
 }

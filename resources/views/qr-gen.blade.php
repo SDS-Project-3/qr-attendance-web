@@ -19,7 +19,7 @@
 <body>
     <main>
         {{-- /create-qr --}}
-        <form action="" id="qr-generation-form">
+        <form action="/create-form" id="qr-generation-form">
 
             <div class="form-group">
                 <label for="mod-major-dd">Select Module Major:</label>
@@ -101,7 +101,7 @@
             
             <div class="form-group">
                 {{-- TODO: Add calendar --}}
-                <input type="date" name="date" id="date">
+                <input type="date" name="module-date" id="date">
             </div>
 
             <input type="submit" value="Generate QR Code" />

@@ -29,7 +29,7 @@ $(document).ready(function () {
 qrGenerationForm.addEventListener("submit", function (event) {
     event.preventDefault();
     let qrContent = `${date.value}, ${major.value}-${module.value}, ${period.value}`;
-    console.log(stringToHex(qrContent));
+    console.log(qrContent);
 
     if (qrCode == null) {
         qrCode = generateQrCode(qrContent);
