@@ -1,3 +1,5 @@
+// TODO: Put this js script within the same blade page
+
 let major = document.getElementById("mod-major-dd");
 let module = document.getElementById("module-dd");
 let period = document.getElementById("period-dd");

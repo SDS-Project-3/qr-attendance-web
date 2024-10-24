@@ -18,8 +18,8 @@
 </head>
 <body>
     <main>
-
-        <form action="/create-qr" id="qr-generation-form">
+        {{-- /create-qr --}}
+        <form action="" id="qr-generation-form">
 
             <div class="form-group">
                 <label for="mod-major-dd">Select Module Major:</label>
