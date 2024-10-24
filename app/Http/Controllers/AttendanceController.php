@@ -33,12 +33,7 @@ class AttendanceController extends Controller
         
     }
 
-    public function recordAttendance(Request $request){
-        $incomingFields = $request->validate([
-            // TODO: Validations
-        ]);
-        
-
-
+    public function showRegistrationForm($pk){
+        return view('attendanceRegistration', compact('pk'));
     }
 }
