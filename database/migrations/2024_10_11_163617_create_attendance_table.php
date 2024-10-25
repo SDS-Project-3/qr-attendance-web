@@ -11,15 +11,23 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('attendance', function (Blueprint $table) {
-            $table->id();
-            $table->string('hex_ref');
+        Schema::create('attendance_ref', function (Blueprint $table) {
+            $table->string('hexa_reference')->primary();
             $table->string('module_code');
             $table->date('module_date');
             $table->string('period');
+            $table->timestamps();
+        });
+
+        Schema::create('attendance', function (Blueprint $table) {
+            $table->id();
+            $table->string('hex_ref');
             $table->string('full_name')->nullable();
             $table->string('student_id')->nullable();
             $table->timestamps();
+
+            $table->foreign('hex_ref')->references('hexa_reference')->on('attendance_ref')
+            ->onDelete('cascade');
         });
     }
 
@@ -29,5 +37,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('attendance');
+        Schema::dropIfExists('attendance_ref');
     }
 };
