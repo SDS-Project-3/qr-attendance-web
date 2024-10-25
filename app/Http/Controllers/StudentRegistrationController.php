@@ -8,8 +8,7 @@ use Illuminate\Support\Facades\Hash;
 
 class StudentRegistrationController extends Controller
 {
-    public function register(Request $request)
-    {
+    public function register(Request $request){
         $incomingFields = $request->validate([
             'student_id' => 'required|string|unique:students,student_id',
             'student_name' => 'required|string',
@@ -27,19 +26,18 @@ class StudentRegistrationController extends Controller
         return redirect('/')->with('message', 'Registration successful!');
     }
 
-    public function login(Request $request)
-{
-    $credentials = $request->validate([
-        'student_id' => 'required|string',
-        'password' => 'required|string',
-    ]);
+    public function login(Request $request){
+        $credentials = $request->validate([
+            'student_id' => 'required|string',
+            'password' => 'required|string',
+        ]);
 
-    if (auth()->attempt($credentials)) {
-        return redirect('/')->with('message', 'Login successful!');
+        if (auth()->attempt($credentials)) {
+            return redirect('/')->with('message', 'Login successful!');
+        }
+
+        return back()->withErrors([
+            'student_id' => 'The provided credentials do not match our records.',
+        ]);
     }
-
-    return back()->withErrors([
-        'student_id' => 'The provided credentials do not match our records.',
-    ]);
-}
 }
