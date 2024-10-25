@@ -33,7 +33,20 @@ class AttendanceController extends Controller
         
     }
 
-    public function showRegistrationForm($pk){
-        return view('attendanceRegistration', compact('pk'));
+    public function showRegistrationForm(Request $request){
+        $pk = $request->input('pk');
+        return view('attendanceForm', compact('pk'));
+    }
+
+    public function takeAttendance(Request $request){
+        $incomingFields = $request->validate([
+            'hex_ref' => ["required"],
+            'full_name' => ["required"],
+            'student_id' => ["required"],
+            'student_email' => ["required"],
+            'password'=> ["required"],
+        ]);
+
+        
     }
 }
