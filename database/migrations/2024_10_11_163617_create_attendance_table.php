@@ -20,17 +20,14 @@ return new class extends Migration
         });
 
         Schema::create('attendance', function (Blueprint $table) {
+            $table->id();
             $table->string('hex_ref');
-            $table->integer('id');
-
-            $table->primary(['hex_ref', 'id']);
-
             $table->string('full_name')->nullable();
             $table->string('student_id')->nullable();
             $table->timestamps();
 
             $table->foreign('hex_ref')->references('hexa_reference')->on('attendance_ref')
-            ->onDelete('cascade'); // Adjust the delete behavior if needed
+            ->onDelete('cascade');
         });
     }
 
