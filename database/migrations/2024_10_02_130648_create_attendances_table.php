@@ -18,7 +18,6 @@ return new class extends Migration
             $table->timestamp('attendance_date')->useCurrent();
             $table->boolean('present')->default(true);
             $table->timestamps();
-
             $table->foreign('student_id')->references('student_id')->on('students')->onDelete('cascade');
         });
     }
