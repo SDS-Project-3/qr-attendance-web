@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Attendance;
 use App\Models\AttendanceReference;
+use App\Models\Student;
 
 class AttendanceController extends Controller
 {
@@ -46,7 +47,24 @@ class AttendanceController extends Controller
             'student_email' => ["required"],
             'password'=> ["required"],
         ]);
-
+        // TODO: Create verification that student exist in database
+        $student = Student::where('email', $incomingFields['student_email'])->first();
+        if (!$student || !Hash::check($incomingFields['password'], $student->password)) {
+            return redirect()->back()->withErrors(['error' => 'Invalid email or password']);
+        }
         
+        $hexRef = $request->input('hex_ref');
+
+        // Manual check ID
+        $lastEntry = Attendance::where('hex_ref', $incomingFields['hex_ref'])->orderBy('id', 'desc')->first();
+        $newId = $lastEntry ? $lastEntry->id + 1 : 1;
+
+
+        Attendance::create([
+            'hex_ref' => $hexRef,
+            'id' => $newId,
+            'student_id' => $incomingFields['student_id'],
+            'full_name' => $incomingFields['full_name'],
+        ]);
     }
 }
