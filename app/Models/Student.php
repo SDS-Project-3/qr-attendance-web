@@ -15,6 +15,7 @@ class Student extends Authenticatable
         'password',
     ];
 
+
     public function attendances()
     {
         return $this->hasMany(Attendance::class, 'student_id', 'student_id');
