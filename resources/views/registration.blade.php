@@ -9,5 +9,11 @@
   <h1>Registration</h1>
   <h1>new</h1>
   <h1>something</h1>
+  <h1>very new</h1>
+  <div>
+    <body>
+      This is a registration form
+    </body>
+  </div>
 </body>
 </html>
