@@ -8,5 +8,6 @@
 <body>
   <h1>Registration</h1>
   <h1>new</h1>
+  <h1>something</h1>
 </body>
 </html>
