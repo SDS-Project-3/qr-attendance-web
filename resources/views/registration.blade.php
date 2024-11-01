@@ -7,5 +7,6 @@
 </head>
 <body>
   <h1>Registration</h1>
+  <h1>new</h1>
 </body>
 </html>
