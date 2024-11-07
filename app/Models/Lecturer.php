@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class Lecturer extends Authenticatable
 {
     use HasFactory, Notifiable;
 
@@ -17,11 +17,11 @@ class User extends Authenticatable
      * @var array<int, string>
      */
 
-    protected $table = 'users';
+    protected $table = 'lecturers';
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'lecturer_name',
+        'lecturer_email',
+        'lecturer_password',
     ];
 
     /**
@@ -30,7 +30,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
+        'lecturer_password',
         'remember_token',
     ];
 
@@ -45,5 +45,9 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function getAuthPassword(){
+        return $this->lecturer_password;  // Change 'lecturer_password' to your actual field name
     }
 }

@@ -101,7 +101,7 @@
                 <form action="/attendance" method="POST">
                     @csrf
                     <div class="form-group">
-                        <label for="student-id">Student ID:</label>
+                        <label for="student-id">Student ID A:</label>
                         <input type="text" id="student-id" name="student_id" required>
                     </div>
                     <div class="form-group">
@@ -114,7 +114,7 @@
                     </div>
                     <div class="form-group">
                         <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" required>
+                        <input type="password" id="password" name="student_password" required>
                     </div>
                     <div class="form-group">
                         <button type="submit">Submit Attendance</button>
@@ -133,7 +133,7 @@
                 </div>
             @endif
 <p></p>
-            <div class="form-container"> {{-- Left-hand --}}
+            <div class="form-container"> {{-- Top --}}
                 <h2>Student Login</h2>
                 @if ($errors->any())
                     <div class="alert">
@@ -152,7 +152,7 @@
                     </div>
                     <div class="form-group">
                         <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" required>
+                        <input type="password" id="password" name="student_password" required>
                     </div>
                     <div class="form-group">
                         <button type="submit">Log In</button>
@@ -160,7 +160,7 @@
                 </form>
             </div>
 <p></p>
-            <div class="form-container"> {{-- Right-hand --}}
+            <div class="form-container"> {{-- Bottom --}}
                 <h2>Student Registration</h2>
                 @if ($errors->any())
                     <div class="alert">
@@ -187,7 +187,7 @@
                     </div>
                     <div class="form-group">
                         <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" required>
+                        <input type="password" id="password" name="student_password" required>
                     </div>
                     <div class="form-group">
                         <button type="submit">Register</button>

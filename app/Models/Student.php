@@ -13,12 +13,16 @@ class Student extends Authenticatable
         'student_id',
         'student_name',
         'student_email',
-        'password',
+        'student_password',
     ];
 
 
     public function attendances()
     {
         return $this->hasMany(Attendance::class, 'student_id', 'student_id');
+    }
+
+    public function getAuthPassword(){
+        return $this->student_password;  // Change 'lecturer_password' to your actual field name
     }
 }
