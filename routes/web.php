@@ -42,5 +42,5 @@ Route::post('/logout', [StudentAttendanceController::class, 'logout']);
 
 Route::post('/create-form', [AttendanceController::class, 'createForm']);
 // Route::get('/attendance-register/{pk}', [AttendanceController::class, 'showRegistrationForm']);
-Route::get('/debuggingQR', [AttendanceController::class, 'showRegistrationForm'])->name('debuggingQR');
+Route::get('/debuggingQR', [AttendanceController::class, 'showRegistrationForm']);
 Route::post('/register-attendance',[AttendanceController::class,'takeAttendance']);
