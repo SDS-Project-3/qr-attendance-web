@@ -25,8 +25,8 @@ Route::get('/home-login', function () {
 //})->middleware('auth')->name('home-login');
 Route::get('/', function () {
     $attendances = session('attendances', []); // Fetch all attendances or filter as needed
-    return view('register', compact('attendances'));
-})->name('register');
+    return view('index', compact('attendances'));
+})->name('index');
 
 //Route::view('/', 'index')->name('index');
 
