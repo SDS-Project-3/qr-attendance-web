@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Student extends Authenticatable
 {
     use HasFactory;
+    protected $table = 'students';
     protected $fillable = [
         'student_id',
         'student_name',

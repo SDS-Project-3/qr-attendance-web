@@ -15,18 +15,19 @@ class RegisterController extends Controller
         ]);
         
 
-        if (auth()->attempt(['name'=>$incomingFields['loginname'], 'password'=>$incomingFields['loginpassword']])){
-            $request->session()->regenerate();
+        //if (auth()->attempt(['name'=>$incomingFields['loginname'], 'password'=>$incomingFields['loginpassword']])){
+
+            //$request->session()->regenerate();
 
             
-        }
-        return redirect('/');
+        //}
+        return redirect('/qr-code');
         
     }
 
     public function logout(){
         auth()->logout();
-        return redirect ('/');
+        return redirect ('/home3');
     }
 
     public function register(Request $request) {
@@ -39,7 +40,7 @@ class RegisterController extends Controller
         $incomingFields['password'] = bcrypt($incomingFields['password']);
         $user = User::create($incomingFields);
         auth()->login($user);
-        return redirect('/');
+        return redirect('/home3');
     }
 
     public function index()

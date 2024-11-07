@@ -35,7 +35,7 @@
     </div>
     <div class = "login">
         <h2 style ="font-family: sans-serif">Login as lecturer</h2>
-        <form action="/login" method="POST">
+        <form action="/login-staff" method="POST">
             @csrf
             <input name="loginname" type="text" placeholder="name">
             <input name="loginpassword" type="password" placeholder="password">
