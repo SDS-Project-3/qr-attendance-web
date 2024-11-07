@@ -20,17 +20,18 @@ Route::get('/home', function () {
 Route::get('/home3', function () {
     return view('home3');
 })->name('home3');
+Route::get('/qr-code', function () {
+    return view('qr-code');
+})->name('qr-code');
 
 
 Route::post('/login', [StudentRegistrationController::class, 'login']);
 Route::post('/register', [StudentRegistrationController::class, 'register']);
 Route::post('/attendance', [StudentAttendanceController::class, 'attendance']);
 Route::post('/logout', [StudentAttendanceController::class, 'logout']);
-Route::post('/register', [RegisterController::class, 'register']);
-Route::post('/logout', [RegisterController::class, 'logout']);
-Route::post('/login', [RegisterController::class, 'login']);
 Route::get('/home3', [RegisterController::class, 'index'])->name('home3');
-RoueL::get('/register', [RegisterController::class, 'register']);
+Route::post('/home3', [RegisterController::class, 'register']);
+Route::post('/login-staff', [RegisterController::class, 'login']);
 
 
 Route::post('/create-form', [AttendanceController::class, 'createForm']);
