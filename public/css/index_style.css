@@ -104,6 +104,20 @@ nav ul li a{
     }
 }
 
+.form-container {
+    width: 100%;                      /* Full width of its container */
+    max-width: 600px;                 /* Limit the maximum width */
+    margin: 0 auto;                   /* Center horizontally */
+    padding: 20px;                    /* Space around the form content */
+    background-color: #ffffff;        /* White background */
+    border: 2px solid #ccc;           /* Border around container */
+    border-radius: 8px;               /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 
 body {

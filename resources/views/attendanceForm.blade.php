@@ -23,7 +23,7 @@
             <label for="student-name">Student Name:</label>
             <input type="text" id="student-name" name="full_name" required>
         </div>
-        
+
         <div class="form-group">
             <label for="student-email">Student Email:</label>
             <input type="email" id="student-email" name="student_email" required>
@@ -37,7 +37,7 @@
         <div class="form-group">
             <button type="submit">Register</button>
         </div>
-        
+
     </form>
 </body>
 </html>

@@ -17,6 +17,84 @@
     <!--
     <link rel="stylesheet" href="{{asset('css/qr-gen.css')}}">
     -->
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f4f6;
+        }
+        header {
+            background-color: #004e92;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column; /* Stack forms vertically */
+            align-items: center; /* Center forms horizontally */
+            justify-content: center; /* Center forms vertically */
+        }
+        .form-container {
+            width: 100%; /* Full width for better appearance */
+            max-width: 400px; /* Limit the width for larger screens */
+            margin: 10px 0; /* Margin between forms */
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #004e92;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            padding: 10px 15px;
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #005f7f;
+        }
+        .alert {
+            color: red;
+            margin-bottom: 15px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #004e92;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+    </style>
 </head>
 <body>
     <div class="hero">
@@ -33,6 +111,7 @@
             </div>
         </nav>
     <main>
+        <div class="form-container">
         <form action="/create-form" id="qr-generation-form">
             @csrf
             <div class="form-group">
@@ -114,6 +193,7 @@
             </div>
 
             <div class="form-group">
+                <label for="period-dd">Date:</label>
                 <input type="date" name="module-date" id="date">
             </div>
 
@@ -129,7 +209,7 @@
             <input type="hidden" name="pk" value="{{ old('pk') }}" id="pk">
             <input type="submit" class="btn" value="Go to Attendance Page" />
         </form>
-
+    </div>
     </main>
 
     <script src="/js/qr-gen.js"></script>

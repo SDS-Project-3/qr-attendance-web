@@ -25,11 +25,10 @@ Route::get('/home-login', function () {
 //})->middleware('auth')->name('home-login');
 Route::get('/', function () {
     $attendances = session('attendances', []); // Fetch all attendances or filter as needed
-    return view('qr-gen', compact('attendances'));
-})->name('qr-gen');
+    return view('index', compact('attendances'));
+})->name('index');
 
 //Route::view('/', 'index')->name('index');
-
 
 #Route::get('/login', [StudentRegistrationController::class, 'login'])->name('login');
 Route::post('/login', [StudentRegistrationController::class, 'login']);
