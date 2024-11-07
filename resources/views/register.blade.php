@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Attendance Form</title>
+    <link rel="stylesheet" href="{{ asset('css/index_style.css') }}">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -94,12 +95,21 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>Student Attendance System</h1>
-    </header>
-
+    <div class="hero">
     <div class="container">
-        @auth
+        <nav>
+                <img src="{{ asset('images/UBD LOGO.png') }}"  class="logo" style="width:5%; height:auto;">
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div>
+                <a href="{{ route('home') }}" class="login-btn">Student Log In</a>
+                <a href="#" class="login-btn">Lecturer Log In</a>
+            </div>
+        </nav>
+        @guest
             <div class="form-container">
                 <h2>Attendance Submitted</h2>
                 @if (session('success'))
@@ -170,9 +180,6 @@
             </div>
         @endauth
     </div>
-
-    <footer>
-        <p>SDS Student Attendance Form</p>
-    </footer>
+</div>
 </body>
 </html>

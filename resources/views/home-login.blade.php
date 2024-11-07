@@ -100,44 +100,33 @@
         </nav>
     <div class="container">
         @auth
-            <div class="form-container">
-                <h2>Student Attendance Form</h2>
-                @if ($errors->any())
-                    <div class="alert">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-                <form action="/attendance" method="POST">
-                    @csrf
-                    <div class="form-group">
-                        <label for="student-id">Student ID:</label>
-                        <input type="text" id="student-id" name="student_id" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="student-name">Student Name:</label>
-                        <input type="text" id="student-name" name="student_name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="student-email">Student Email:</label>
-                        <input type="email" id="student-email" name="student_email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" required>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit">Submit Attendance</button>
-                    </div>
-                </form>
-                <form action="/logout" method="POST">
-                    @csrf
-                    <button type="submit">Log Out</button>
-                </form>
-            </div>
+    <h2>Your Attendance History</h2>
+    @if($attendances->count() > 0)
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Student ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($attendances as $attendance)
+                    <tr>
+                        <td>{{ $attendance->attendance_date }}</td>
+                        <td>{{ $attendance->student_id }}</td>
+                        <td>{{ $attendance->student_name }}</td>
+                        <td>{{ $attendance->student_email }}</td>
+                        <td>{{ $attendance->present ? 'Present' : 'Absent' }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+        @else
+        <p>No attendance records found.</p>
+    @endif
         @else
             @if (session('registered'))
                 <div class="form-container">

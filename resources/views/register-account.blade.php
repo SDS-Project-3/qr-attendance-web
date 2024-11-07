@@ -87,7 +87,7 @@
 <div class="hero">
     <div class="layer">
         <nav>
-            <img src="{{ asset('images/UBD LOGO.png') }}" class="logo" style="width:5%; height:auto;">
+            <img src="{{ asset('images/UBD LOGO.png') }}"  class="logo" style="width:5%; height:auto;">
             <ul>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Features</a></li>
@@ -98,10 +98,8 @@
                 <a href="#" class="login-btn">Lecturer Log In</a>
             </div>
         </nav>
-    <div class="container">
-        @auth
-            <div class="form-container">
-                <h2>Student Attendance Form</h2>
+            <div class="form-container"> {{-- Right-hand --}}
+                <h2>Student Registration</h2>
                 @if ($errors->any())
                     <div class="alert">
                         <ul>
@@ -111,7 +109,8 @@
                         </ul>
                     </div>
                 @endif
-                <form action="/attendance" method="POST">
+
+                <form action="/register" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="student-id">Student ID:</label>
@@ -130,52 +129,10 @@
                         <input type="password" id="password" name="password" required>
                     </div>
                     <div class="form-group">
-                        <button type="submit">Submit Attendance</button>
+                        <button type="submit">Register</button>
                     </div>
                 </form>
-                <form action="/logout" method="POST">
-                    @csrf
-                    <button type="submit">Log Out</button>
-                </form>
             </div>
-        @else
-            @if (session('registered'))
-                <div class="form-container">
-                    <h2>Registration Successful!</h2>
-                    <p>Please log in with your credentials.</p>
-                </div>
-            @endif
-<p></p>
-<div class="form-container"> {{-- Left-hand --}}
-    <h2>Student Login</h2>
-    @if ($errors->any())
-        <div class="alert">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-    <form action="/login" method="POST">
-        @csrf
-        <div class="form-group">
-            <label for="student-id">Student ID:</label>
-            <input type="text" id="student-id" name="student_id" required>
-        </div>
-        <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <div class="form-group" style="display: flex; justify-content: space-between;">
-            <button type="submit" class="register-button">Log In</button> <!-- Keep as a submit button -->
-            <a href="{{ url('/register') }}" class="register-button">Register</a> <!-- Link to the registration page -->
-        </div>
-    </form>
-</div>
-
-<p></p>
-        @endauth
     </div>
 </div>
 </div>

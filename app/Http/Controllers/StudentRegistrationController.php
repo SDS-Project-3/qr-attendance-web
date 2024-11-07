@@ -24,7 +24,7 @@ class StudentRegistrationController extends Controller
         ]);
         auth()->login($student);
         session()->flash('registered', true);
-        return redirect('/')->with('message', 'Registration successful!');
+        return redirect('/home')->with('message', 'Registration successful!');
     }
 
     public function login(Request $request){
@@ -34,7 +34,8 @@ class StudentRegistrationController extends Controller
         ]);
 
         if (auth()->attempt($credentials)) {
-            return redirect('/')->with('message', 'Login successful!');
+            $attendances = auth()->user()->attendances; // Retrieve attendances from the database
+            return view('home-login', compact('attendances')); // Pass attendances to the view
         }
 
         return back()->withErrors([

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Code Generator</title>
+    <link rel="stylesheet" href="{{ asset('css/index_style.css') }}">
 
     <!-- Select2 CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
@@ -13,10 +14,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <!--
     <link rel="stylesheet" href="{{asset('css/qr-gen.css')}}">
-    
+    -->
 </head>
 <body>
+    <div class="hero">
+        <nav>
+            <img src="{{ asset('images/UBD LOGO.png') }}"  class="logo" style="width:5%; height:auto;">
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div>
+                <a href="{{ route('home') }}" class="login-btn">Student Log In</a>
+                <a href="#" class="login-btn">Lecturer Log In</a>
+            </div>
+        </nav>
     <main>
         <form action="/create-form" id="qr-generation-form">
             @csrf
@@ -33,7 +48,7 @@
                 </select>
             </div>
 
-            
+
             <div class="form-group">
                 <label for="module-dd">Select Module:</label>
                 <select name="module-num" id="module-dd" class="dd-select">
@@ -97,12 +112,12 @@
                     <option value="PM2">Period 05: 1610 - 1800</option>
                 </select>
             </div>
-            
+
             <div class="form-group">
                 <input type="date" name="module-date" id="date">
             </div>
 
-            <input type="submit" value="Generate QR Code" />
+            <input class="btn" type="submit" value="Generate QR Code" />
 
         </form>
 
@@ -112,11 +127,12 @@
 
         <form action="/debuggingQR" method="GET" id="debugging-form">
             <input type="hidden" name="pk" value="{{ old('pk') }}" id="pk">
-            <input type="submit" value="Go to Attendance Page" />
+            <input type="submit" class="btn" value="Go to Attendance Page" />
         </form>
 
     </main>
 
     <script src="/js/qr-gen.js"></script>
+</div>
 </body>
 </html>
