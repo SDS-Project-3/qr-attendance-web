@@ -22,9 +22,9 @@ class StudentRegistrationController extends Controller
             'student_email' => $incomingFields['student_email'],
             'password' => Hash::make($incomingFields['password']),
         ]);
-        auth()->login($student);
+
         session()->flash('registered', true);
-        return redirect('/home')->with('message', 'Registration successful!');
+        return redirect('/home-login')->with('message', 'Registration successful! Please log in.');
     }
 
     public function login(Request $request){

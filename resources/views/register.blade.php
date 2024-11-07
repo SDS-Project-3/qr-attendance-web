@@ -109,7 +109,7 @@
                 <a href="#" class="login-btn">Lecturer Log In</a>
             </div>
         </nav>
-        @guest
+        @auth
             <div class="form-container">
                 <h2>Attendance Submitted</h2>
                 @if (session('success'))
