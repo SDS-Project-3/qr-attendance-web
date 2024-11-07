@@ -23,7 +23,8 @@
         <img src="https://ubd.edu.bn/wp-content/uploads/2023/11/UBD-logo-Oct2023-219x300.png" alt="Trulli" width="150" height="200" class="center">
         <h1 style = "margin-bottom = 0"> </h1>
         <h1 style="color: white; font-size: 25px;font-family: sans-serif;">Register as lecturer</h1>
-        <form action="/register" method="POST">
+
+        <form action="/lecturer-register" method="POST">
             @csrf
             <input name="name" type="text" placeholder="name">
             <input name="email" type="text" placeholder="email">
@@ -33,9 +34,10 @@
             color: white;">Register</button>
         </form>
     </div>
+
     <div class = "login">
         <h2 style ="font-family: sans-serif">Login as lecturer</h2>
-        <form action="/login" method="POST">
+        <form action="/lecturer-login" method="POST">
             @csrf
             <input name="loginname" type="text" placeholder="name">
             <input name="loginpassword" type="password" placeholder="password">
