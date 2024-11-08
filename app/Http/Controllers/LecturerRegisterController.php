@@ -6,7 +6,7 @@ use App\Models\Lecturer;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
-class RegisterController extends Controller
+class LecturerRegisterController extends Controller
 {
     public function register(Request $request) {
         $incomingFields = $request->validate([
@@ -18,11 +18,11 @@ class RegisterController extends Controller
         $incomingFields['lecturer_password'] = bcrypt($incomingFields['lecturer_password']);
         $user = Lecturer::create($incomingFields);
         auth()->login($user);
-        return redirect('/home3');
+        return redirect('/qr-code');
     }
 
     public function login(Request $request){
-        \Log::info('Login Attempt Data: ', $request->all());
+        // \Log::info('Login Attempt Data: ', $request->all());
 
         $incomingFields = $request->validate([
             'lecturer_name'=>'required',

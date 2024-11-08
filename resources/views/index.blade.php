@@ -18,7 +18,7 @@
         </ul>
         <div>
             <a href="{{ route('home-login') }}" class="login-btn">Student Log In</a>
-            <a href="#" class="login-btn">Lecturer Log In</a>
+            <a href="{{ route('home3') }}"  class="login-btn">Lecturer Log In</a>
         </div>
     </nav>
     <div class="content">
