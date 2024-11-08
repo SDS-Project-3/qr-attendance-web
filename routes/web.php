@@ -9,7 +9,7 @@ use App\Http\Controllers\LecturerRegisterController;
 
 Route::get('/', function () {
     $attendances = session('attendances', []);
-    return view('index', compact('attendances'));
+    return view('home3', compact('attendances'));
 });
 Route::get('/home', function () {
     return view('home');

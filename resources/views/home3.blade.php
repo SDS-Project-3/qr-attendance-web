@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('css/index_style.css') }}">
     <link rel=stylesheet href="\css\myapp.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
@@ -16,8 +17,8 @@
     <form action="/logout" method="POST">
         @csrf
         <button>Log out</button>
-    
-    @else        
+
+    @else
     <div class = "homepageThing">
         <h1 class = "headingTitle">QR Code Attendance recorder for School of Digital Science</h1>
         <img src="https://ubd.edu.bn/wp-content/uploads/2023/11/UBD-logo-Oct2023-219x300.png" alt="Trulli" width="150" height="200" class="center">
@@ -48,6 +49,6 @@
     </div>
     @endauth
 
-    
+
 </body>
 </html>
