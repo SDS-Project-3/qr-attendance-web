@@ -67,7 +67,7 @@
             <img src="{{ asset('images/Lecturer.png') }}" alt="Lecturer" style="width: 50%; height: auto;">
             <h2>Lecture Login</h2>
             <p>Generate QR code, review attendance</p>
-            <a class="button" href="lecture_login.html">Login</a>
+            <a class="button" href="{{ route('home3') }}">Login</a>
         </div>
     </div>
 

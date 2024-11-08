@@ -11,24 +11,6 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('students', function (Blueprint $table) {
-            $table->id();
-            $table->string('student_id')->unique();
-            $table->string('student_name');
-            $table->string('student_email');
-            $table->string('password');
-            $table->timestamp('registered')->nullable();
-            $table->timestamps();
-        });
-
-        Schema::create('lecturers', function (Blueprint $table) {
-            $table->id();
-            $table->string('staff_name');
-            $table->string('staff_email');
-            $table->string('password');
-            $table->timestamps();
-        });
-
         Schema::create('sessions', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->foreignId('user_id')->nullable()->index();
@@ -37,7 +19,6 @@ return new class extends Migration
             $table->longText('payload');
             $table->integer('last_activity')->index();
         });
-
     }
 
     /**
@@ -45,8 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('lecturers');
-        Schema::dropIfExists('students');
         Schema::dropIfExists('sessions');
     }
 };
