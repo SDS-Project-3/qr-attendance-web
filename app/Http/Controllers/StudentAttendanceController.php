@@ -41,28 +41,37 @@ class StudentAttendanceController extends Controller
     $attendanceCount = Attendance::where('student_id', $student->id)->count();
     return redirect('/')->with(['success' => 'Attendance submitted successfully.']);
 }
-    public function showAttendanceHistory()
-    {
-        $incomingFields = $request->validate([
-            'student_id' => 'required|string',
-            'student_name' => 'required|string',
-            'student_email' => 'required|email',
-            'password' => 'required|string',
-        ]);
-        $student = Student::where('student_id', $incomingFields['student_id'])
-                          ->where('student_email', $incomingFields['student_email'])
-                          ->first();
-        if ($student && Hash::check($request->password, $student->password)) {
-            auth()->login($student);
-            $request->session()->regenerate();
-            return redirect('/')->with('message', 'Attendance Submitted');
-        }
-        return back()->withErrors(['message' => 'Invalid credentials.']);
+public function showAttendanceHistory(Request $request)
+{
+    // Validate the necessary fields for login
+    $incomingFields = $request->validate([
+        'student_id' => 'required|string',
+        'student_email' => 'required|email',
+        'password' => 'required|string',
+    ]);
 
-        $student = Auth::user()?->student_id;
-        $attendances = Attendance::where('student_id', $student)->get();
-        return view('home', compact('attendances'));
+    // Find the student using the student_id and student_email
+    $student = Student::where('student_id', $incomingFields['student_id'])
+                      ->where('student_email', $incomingFields['student_email'])
+                      ->first();
+
+    // Check if the student exists and if the password is correct
+    if ($student && Hash::check($incomingFields['password'], $student->password)) {
+        // Log the student in
+        auth()->login($student);
+        $request->session()->regenerate();
+
+        // Fetch the attendance records for the logged-in student
+        $attendances = Attendance::where('student_id', $student->student_id)->get();
+
+        // Return the 'home' view with the attendance data
+        return view('home', compact('attendances'))->with('message', 'Attendance Submitted');
     }
+
+    // Return back with error message if credentials are invalid
+    return back()->withErrors(['message' => 'Invalid credentials.']);
+}
+
     public function logout() {
         auth()->logout();
         return redirect('/');

@@ -1,3 +1,125 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.hero {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('/images/Background.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 10px 10%;
+    overflow: hidden;
+    position: relative;
+}
+nav{
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    width: 140px;
+}
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 15px;
+}
+nav ul li a{
+    text-decoration: none;
+    color:#333;
+    font-weight: 400;
+}
+.login-btn{
+    text-decoration: none;
+    color: #333;
+    margin-right: 15px;
+    font-weight: 400;
+}
+.login-btn{
+    display: inline-block;
+    text-decoration: none;
+    padding: 14px 40px;
+    color: #fff;
+    background-image: linear-gradient(45deg, #004e92, #0d64b3);
+    font-size: 14px;
+    border-radius: 30px;
+    border-top-right-radius: 0;
+    transition: 0.5s;
+}
+.btn{
+    display: inline-block;
+    text-decoration: none;
+    padding: 14px 40px;
+    color: #fff;
+    background-image: linear-gradient(45deg, #004e92, #0d64b3);
+    font-size: 14px;
+    border-radius: 30px;
+    border-top-right-radius: 0;
+    transition: 0.5s;
+}
+.content{
+    margin-top: 10%;
+    max-width: 600px;
+}
+.content h1{
+    font-size: 70px;
+    color: #222;
+}
+.content p{
+    margin: 10px 0 30px;
+    color:#333;
+    animation-delay: 0.5s;
+}
+.content .login-btn{
+    padding: 15px 80px;
+    font-size: 16px;
+    animation-delay: 1s;
+}
+.login-btn:hover{
+    border-top-right-radius:30px;
+}
+.feature-img{
+    width: 530px;
+    position: absolute;
+    bottom: 0;
+    right: 10%;
+}
+.feature-img.anim{
+    animation-delay: 1.5s;
+}
+.anim{
+    opacity: 0;
+    transform: translateY(30px);
+    animation: moveup 0.5s linear forwards;
+}
+@keyframes moveup{
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.form-container {
+    width: 100%;                      /* Full width of its container */
+    max-width: 600px;                 /* Limit the maximum width */
+    margin: 0 auto;                   /* Center horizontally */
+    padding: 20px;                    /* Space around the form content */
+    background-color: #ffffff;        /* White background */
+    border: 2px solid #ccc;           /* Border around container */
+    border-radius: 8px;               /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f2f4f6;
@@ -15,13 +137,13 @@ header {
 .banner {
     position: relative;
     overflow: hidden;
-    height: 400px;
+    height: 800px;
 }
 
 .banner-image {
     width: 100%;
-    height: auto;
-    max-height: 400px;
+    height: 100%;
+
     object-fit: cover;
     display: block;
     margin: 0 auto;
@@ -37,12 +159,12 @@ header {
     font-size: 36px;
     margin: 0;
 }
-
+/*
 .content {
     text-align: center;
     padding: 20px;
 }
-
+*/
 .description {
     max-width: 800px;
     margin: auto;
@@ -127,3 +249,21 @@ footer {
     background-color: #008CBA;
     color: white;
 }
+.register-button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-image: linear-gradient(45deg, #004e92, #0d64b3);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none; /* Remove underline */
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.register-button:hover {
+    opacity: 0.8; /* Slightly reduce opacity on hover */
+    background-image: linear-gradient(45deg, #00376b, #0b4d92); /* Darker gradient on hover */
+}
+

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Code Generator</title>
+    <link rel="stylesheet" href="{{ asset('css/index_style.css') }}">
 
     <!-- Select2 CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
@@ -13,11 +14,104 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <!--
     <link rel="stylesheet" href="{{asset('css/qr-gen.css')}}">
-    
+    -->
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f4f6;
+        }
+        header {
+            background-color: #004e92;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column; /* Stack forms vertically */
+            align-items: center; /* Center forms horizontally */
+            justify-content: center; /* Center forms vertically */
+        }
+        .form-container {
+            width: 100%; /* Full width for better appearance */
+            max-width: 400px; /* Limit the width for larger screens */
+            margin: 10px 0; /* Margin between forms */
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #004e92;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            padding: 10px 15px;
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #005f7f;
+        }
+        .alert {
+            color: red;
+            margin-bottom: 15px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #004e92;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+    </style>
 </head>
 <body>
+    <div class="hero">
+        <nav>
+            <img src="{{ asset('images/UBD LOGO.png') }}"  class="logo" style="width:5%; height:auto;">
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div>
+                <a href="{{ route('home') }}" class="login-btn">Student Log In</a>
+                <a href="#" class="login-btn">Lecturer Log In</a>
+            </div>
+        </nav>
     <main>
+        <div class="form-container">
         <form action="/create-form" id="qr-generation-form">
             @csrf
             <div class="form-group">
@@ -33,7 +127,7 @@
                 </select>
             </div>
 
-            
+
             <div class="form-group">
                 <label for="module-dd">Select Module:</label>
                 <select name="module-num" id="module-dd" class="dd-select">
@@ -97,12 +191,13 @@
                     <option value="PM2">Period 05: 1610 - 1800</option>
                 </select>
             </div>
-            
+
             <div class="form-group">
+                <label for="period-dd">Date:</label>
                 <input type="date" name="module-date" id="date">
             </div>
 
-            <input type="submit" value="Generate QR Code" />
+            <input class="btn" type="submit" value="Generate QR Code" />
 
         </form>
 
@@ -112,11 +207,12 @@
 
         <form action="/debuggingQR" method="GET" id="debugging-form">
             <input type="hidden" name="pk" value="{{ old('pk') }}" id="pk">
-            <input type="submit" value="Go to Attendance Page" />
+            <input type="submit" class="btn" value="Go to Attendance Page" />
         </form>
-
+    </div>
     </main>
 
     <script src="/js/qr-gen.js"></script>
+</div>
 </body>
 </html>

@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('css/index_style.css') }}">
     <title>Student Attendance Form</title>
     <style>
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -78,13 +80,24 @@
             bottom: 0;
             width: 100%;
         }
+
     </style>
 </head>
 <body>
-    <header>
-        <h1>Student Attendance System</h1>
-    </header>
-
+<div class="hero">
+    <div class="layer">
+        <nav>
+            <img src="{{ asset('images/UBD LOGO.png') }}" class="logo" style="width:5%; height:auto;">
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div>
+                <a href="{{ route('home') }}" class="login-btn">Student Log In</a>
+                <a href="#" class="login-btn">Lecturer Log In</a>
+            </div>
+        </nav>
     <div class="container">
         @auth
             <div class="form-container">
@@ -133,6 +146,37 @@
                 </div>
             @endif
 <p></p>
+{{--
+<div class="form-container">
+    <h2>Student Login</h2>
+    @if ($errors->any())
+        <div class="alert">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    <form action="/login" method="POST">
+        @csrf
+        <div class="form-group">
+            <label for="student-id">Student ID:</label>
+            <input type="text" id="student-id" name="student_id" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group" style="display: flex; justify-content: space-between;">
+            <button type="submit" class="register-button">Log In</button> <!-- Keep as a submit button -->
+            <a href="{{ url('/register') }}" class="register-button">Register</a> <!-- Link to the registration page -->
+        </div>
+    </form>
+</div>
+
+<p></p>
+--}}
             <div class="form-container"> {{-- Top --}}
                 <h2>Student Login</h2>
                 @if ($errors->any())
@@ -196,10 +240,8 @@
             </div>
         @endauth
     </div>
-
-    <footer>
-        <p>SDS Student Attendance Form</p>
-    </footer>
+</div>
+</div>
 </body>
 </html>
 

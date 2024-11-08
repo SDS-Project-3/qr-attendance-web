@@ -22,9 +22,9 @@ class StudentRegistrationController extends Controller
             'student_email' => $incomingFields['student_email'],
             'student_password' => Hash::make($incomingFields['student_password']),
         ]);
-        auth()->login($student);
+
         session()->flash('registered', true);
-        return redirect('/')->with('message', 'Registration successful!');
+        return redirect('/home-login')->with('message', 'Registration successful! Please log in.');
     }
 
     // ! Error Catch: Undefined array key "password"
@@ -33,6 +33,11 @@ class StudentRegistrationController extends Controller
             'student_id' => 'required|string',
             'student_password' => 'required|string|min:8',
         ]);
+
+// <<<<<<< att-form
+//         if (auth()->attempt($credentials)) {
+//             $attendances = auth()->user()->attendances; // Retrieve attendances from the database
+//             return view('home-login', compact('attendances')); // Pass attendances to the view
 
         if (auth()->guard('student')->attempt($credentials)) {
             return redirect('/')->with('message', 'Login successful!');

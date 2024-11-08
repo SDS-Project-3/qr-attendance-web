@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Attendance Form</title>
     <link rel="stylesheet" href="{{ asset('css/index_style.css') }}">
+    <title>Student Attendance Form</title>
     <style>
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -23,12 +24,14 @@
             margin: auto;
             padding: 20px;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            flex-direction: column; /* Stack forms vertically */
+            align-items: center; /* Center forms horizontally */
+            justify-content: center; /* Center forms vertically */
         }
         .form-container {
-            flex: 1 1 300px;
-            margin: 10px;
+            width: 100%; /* Full width for better appearance */
+            max-width: 400px; /* Limit the width for larger screens */
+            margin: 10px 0; /* Margin between forms */
             padding: 20px;
             border: 1px solid #ddd;
             border-radius: 8px;
@@ -77,28 +80,14 @@
             bottom: 0;
             width: 100%;
         }
-        .success {
-            color: green;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        table, th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
+
     </style>
 </head>
 <body>
-    <div class="hero">
-    <div class="container">
+<div class="hero">
+    <div class="layer">
         <nav>
-                <img src="{{ asset('images/UBD LOGO.png') }}"  class="logo" style="width:5%; height:auto;">
+            <img src="{{ asset('images/UBD LOGO.png') }}"  class="logo" style="width:5%; height:auto;">
             <ul>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Features</a></li>
@@ -109,53 +98,19 @@
                 <a href="#" class="login-btn">Lecturer Log In</a>
             </div>
         </nav>
-        @auth
-            <div class="form-container">
-                <h2>Attendance Submitted</h2>
-                @if (session('success'))
-                    <div class="success">{{ session('success') }}</div>
-                @endif
-                <h3>Your Attendance History</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Student ID</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($attendances as $attendance)
-                            <tr>
-                                <td>{{ $attendance->attendance_date }}</td>
-                                <td>{{ $attendance->student_id ?? 'None'}}</td>
-                                <td>{{ $attendance->student_name ?? 'None'}}</td>
-                                <td>{{ $attendance->student_email ?? 'None'}}</td>
-                                <td>{{ $attendance->present ? 'Present' : 'Absent' }}</td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-                <form action="/logout" method="POST" style="margin-top: 20px;">
-                    @csrf
-                    <button type="submit">Log Out</button>
-                </form>
-            </div>
-        @else
-            <div class="form-container">
-                <h2>Student Attendance Form</h2>
+            <div class="form-container"> {{-- Right-hand --}}
+                <h2>Student Registration</h2>
                 @if ($errors->any())
-                <div class="alert">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-                <form action="/attendance" method="POST">
+                    <div class="alert">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+                <form action="/register" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="student-id">Student ID:</label>
@@ -174,12 +129,13 @@
                         <input type="password" id="password" name="password" required>
                     </div>
                     <div class="form-group">
-                        <button type="submit">Submit Attendance</button>
+                        <button type="submit">Register</button>
                     </div>
                 </form>
             </div>
-        @endauth
     </div>
+</div>
 </div>
 </body>
 </html>
+
