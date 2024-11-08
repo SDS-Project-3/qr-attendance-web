@@ -21,9 +21,9 @@
     @else
     <div class = "homepageThing">
         <h1 class = "headingTitle">QR Code Attendance recorder for School of Digital Science</h1>
-        <img src="https://ubd.edu.bn/wp-content/uploads/2023/11/UBD-logo-Oct2023-219x300.png" alt="Trulli" width="150" height="200" class="center">
+        
         <h1 style = "margin-bottom = 0"> </h1>
-        <h1 style="color: white; font-size: 25px;font-family: sans-serif;">Register as lecturer</h1>
+        <h1 style="color: black; font-size: 25px;font-family: sans-serif;">Register as lecturer</h1>
 
         <form action="/register-staff" method="POST">
             @csrf

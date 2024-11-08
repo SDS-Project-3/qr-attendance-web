@@ -42,9 +42,9 @@ Route::get('/home3', function () {
     return view('home3');
 })->name('home3');
 
-Route::get('/qr-code', function () {
-    return view('qr-code');
-})->name('qr-code');
+Route::get('/qr-gen', function () {
+    return view('qr-gen');
+})->name('qr-gen');
 
 Route::post('/login', [StudentRegistrationController::class, 'login']);
 Route::post('/register', [StudentRegistrationController::class, 'register']);

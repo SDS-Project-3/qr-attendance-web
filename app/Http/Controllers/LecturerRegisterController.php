@@ -18,7 +18,7 @@ class LecturerRegisterController extends Controller
         $incomingFields['lecturer_password'] = bcrypt($incomingFields['lecturer_password']);
         $user = Lecturer::create($incomingFields);
         auth()->login($user);
-        return redirect('/qr-code');
+        return redirect('/qr-gen');
     }
 
     public function login(Request $request){
@@ -37,7 +37,7 @@ class LecturerRegisterController extends Controller
         //         $request->session()->regenerate();
         //     }
             
-        return redirect('/qr-code');
+        return redirect('/qr-gen');
     }
 
     public function logout(){

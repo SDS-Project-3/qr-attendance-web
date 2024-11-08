@@ -122,8 +122,16 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <form action="/logout" method="POST" style="margin-top: 20px;">
+                        @csrf
+                        <button type="submit">Log Out</button>
+                    </form>
                 @else
                     <p>No attendance records found.</p>
+                    <form action="/logout" method="POST" style="margin-top: 20px;">
+                        @csrf
+                        <button type="submit">Log Out</button>
+                    </form>
                 @endif
             @endauth
 

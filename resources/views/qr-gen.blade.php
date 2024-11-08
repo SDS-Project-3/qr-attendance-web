@@ -209,7 +209,12 @@
             <input type="hidden" name="pk" value="{{ old('pk') }}" id="pk">
             <input type="submit" class="btn" value="Go to Attendance Page" />
         </form>
+        <form action="/logout" method="POST" style="margin-top: 20px;">
+            @csrf
+            <button type="submit">Log Out</button>
+        </form>
     </div>
+    
     </main>
 
     <script src="/js/qr-gen.js"></script>

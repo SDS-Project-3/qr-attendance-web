@@ -50,18 +50,19 @@ class AttendanceController extends Controller
             'password'=> ["required"],
         ]);
 
-        $student = Student::where('student_email', $incomingFields['student_email'])->first();
-        if (!$student || !Hash::check($incomingFields['password'], $student->password)) {
-            return redirect()->back()->withErrors(['error' => 'Invalid email or password']);
-        }
+        // $student = Student::where('student_email', $incomingFields['student_email'])->first();
+        // if (!$student || !Hash::check($incomingFields['password'], $student->password)) {
+        //     return redirect()->back()->withErrors(['error' => 'Invalid email or password']);
+        // }
 
         $hexRef = $request->input('hex_ref');
-
 
         Attendance::create([
             'hex_ref' => $hexRef,
             'student_id' => $incomingFields['student_id'],
             'full_name' => $incomingFields['full_name'],
         ]);
+
+        return view('/index');
     }
 }
