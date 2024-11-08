@@ -22,12 +22,14 @@
             margin: auto;
             padding: 20px;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            flex-direction: column; /* Stack forms vertically */
+            align-items: center; /* Center forms horizontally */
+            justify-content: center; /* Center forms vertically */
         }
         .form-container {
-            flex: 1 1 300px;
-            margin: 10px;
+            width: 100%; /* Full width for better appearance */
+            max-width: 400px; /* Limit the width for larger screens */
+            margin: 10px 0; /* Margin between forms */
             padding: 20px;
             border: 1px solid #ddd;
             border-radius: 8px;
@@ -85,7 +87,7 @@
 
     <div class="container">
         @auth
-            <div class="form-container"> 
+            <div class="form-container">
                 <h2>Student Attendance Form</h2>
                 @if ($errors->any())
                     <div class="alert">
@@ -99,7 +101,7 @@
                 <form action="/attendance" method="POST">
                     @csrf
                     <div class="form-group">
-                        <label for="student-id">Student ID:</label>
+                        <label for="student-id">Student ID A:</label>
                         <input type="text" id="student-id" name="student_id" required>
                     </div>
                     <div class="form-group">
@@ -112,7 +114,7 @@
                     </div>
                     <div class="form-group">
                         <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" required>
+                        <input type="password" id="password" name="student_password" required>
                     </div>
                     <div class="form-group">
                         <button type="submit">Submit Attendance</button>
@@ -130,8 +132,8 @@
                     <p>Please log in with your credentials.</p>
                 </div>
             @endif
-
-            <div class="form-container"> {{-- Left-hand --}}
+<p></p>
+            <div class="form-container"> {{-- Top --}}
                 <h2>Student Login</h2>
                 @if ($errors->any())
                     <div class="alert">
@@ -150,15 +152,15 @@
                     </div>
                     <div class="form-group">
                         <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" required>
+                        <input type="password" id="password" name="student_password" required>
                     </div>
                     <div class="form-group">
                         <button type="submit">Log In</button>
                     </div>
                 </form>
             </div>
-
-            <div class="form-container"> {{-- Right-hand --}}
+<p></p>
+            <div class="form-container"> {{-- Bottom --}}
                 <h2>Student Registration</h2>
                 @if ($errors->any())
                     <div class="alert">
@@ -185,7 +187,7 @@
                     </div>
                     <div class="form-group">
                         <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" required>
+                        <input type="password" id="password" name="student_password" required>
                     </div>
                     <div class="form-group">
                         <button type="submit">Register</button>
@@ -200,3 +202,4 @@
     </footer>
 </body>
 </html>
+
